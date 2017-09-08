@@ -12,5 +12,10 @@ RUN yum install -y wget groff less mailcap &&\
     yum clean headers &&\
     yum clean metadata &&\
     yum clean all &&\
-    rm -rf ~/.cache/pip
+    rm -rf ~/.cache/pip &&\
+    mkdir -p /root/.aws &&\
+    mkdir -p /project
+VOLUME /root/.aws
+VOLUME /project
+WORKDIR /project
 ENTRYPOINT ["aws"]
